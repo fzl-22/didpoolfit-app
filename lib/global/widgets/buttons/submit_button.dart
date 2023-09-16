@@ -16,7 +16,6 @@ class SubmitButton extends StatelessWidget {
     return Container(
       width: double.infinity,
       height: 60,
-      margin: const EdgeInsets.symmetric(horizontal: 24),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(99),
         gradient: logoLinear,

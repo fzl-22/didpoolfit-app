@@ -37,3 +37,5 @@ flutter build apk // or flutter build apk --debug
 ```
 
 Then, you can find the built .apk in your `build/app/outputs/flutter-apk/` directory.
+
+https://www.figma.com/file/NXWyyHMM5J2CFw89HfWF98/Fitness-Mobile-App-UI-by-tMinus1-Design-(Community)?type=design&node-id=255-3810&mode=design&t=rX6wCf7CCc7ykuRk-0

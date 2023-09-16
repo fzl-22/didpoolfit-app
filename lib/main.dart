@@ -27,12 +27,28 @@ class MyApp extends StatelessWidget {
             fontSize: 24,
             fontWeight: FontWeight.w700,
           ),
+          titleSmall: TextStyle(
+            fontSize: 20,
+            fontWeight: FontWeight.w700,
+          ),
           bodyLarge: TextStyle(
             fontSize: 18,
             fontWeight: FontWeight.normal,
           ),
           bodyMedium: TextStyle(
+            fontSize: 16,
+            fontWeight: FontWeight.normal,
+          ),
+          bodySmall: TextStyle(
             fontSize: 14,
+            fontWeight: FontWeight.normal,
+          ),
+          labelMedium: TextStyle(
+            fontSize: 12,
+            fontWeight: FontWeight.normal,
+          ),
+          labelSmall: TextStyle(
+            fontSize: 10,
             fontWeight: FontWeight.normal,
           ),
         ),

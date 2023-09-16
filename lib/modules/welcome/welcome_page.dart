@@ -16,16 +16,19 @@ class WelcomePage extends StatelessWidget {
       ),
       child: Scaffold(
         floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
-        floatingActionButton: SubmitButton(
-          onPressed: () {
-            Navigator.of(context).push(
-              MaterialPageRoute(
-                builder: (context) => const OnboardingPage(),
-              ),
-            );
-          },
-          child: const Text(
-            "Get Started",
+        floatingActionButton: Container(
+          padding: const EdgeInsets.symmetric(horizontal: 24),
+          child: SubmitButton(
+            onPressed: () {
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (context) => const OnboardingPage(),
+                ),
+              );
+            },
+            child: const Text(
+              "Get Started",
+            ),
           ),
         ),
         backgroundColor: Colors.transparent,
