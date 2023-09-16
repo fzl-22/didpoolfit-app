@@ -1,74 +1,31 @@
 import 'package:flutter/material.dart';
-import 'package:iconly/iconly.dart';
 
-class AuthTextFormField extends StatefulWidget {
-  final TextEditingController controller;
+class AuthDropdownButtonFormField extends StatelessWidget {
   final String hintText;
   final String iconPath;
-  final TextInputType keyboardType;
-  final bool obscureText;
-  final bool isPassword;
+  final void Function(String?)? onChanged;
   final String? Function(String?)? validator;
-  final bool enabled;
-  final void Function()? onTap;
+  final List<DropdownMenuItem<String>>? items;
 
-  const AuthTextFormField({
+  const AuthDropdownButtonFormField({
     super.key,
-    required this.controller,
     required this.hintText,
     required this.iconPath,
-    this.keyboardType = TextInputType.name,
-    this.obscureText = false,
-    this.isPassword = false,
+    required this.onChanged,
     required this.validator,
-    this.enabled = true,
-    this.onTap,
+    required this.items,
   });
 
   @override
-  State<AuthTextFormField> createState() => _AuthTextFormFieldState();
-}
-
-class _AuthTextFormFieldState extends State<AuthTextFormField> {
-  bool isVisible = false;
-
-  bool get obscureTextValue {
-    if (widget.obscureText == true && isVisible == true) {
-      return false;
-    } else if (widget.obscureText == true && isVisible == false) {
-      return true;
-    } else if (widget.obscureText == false && isVisible == true) {
-      return false;
-    } else {
-      return false;
-    }
-  }
-
-  @override
   Widget build(BuildContext context) {
-    return TextFormField(
-      controller: widget.controller,
-      obscureText: obscureTextValue,
-      keyboardType: widget.keyboardType,
+    return DropdownButtonFormField(
+      style: Theme.of(context).textTheme.labelMedium,
       decoration: InputDecoration(
-        suffixIcon: widget.isPassword
-            ? GestureDetector(
-                onTap: () {
-                  setState(() {
-                    isVisible = !isVisible;
-                  });
-                },
-                child: Icon(
-                  isVisible ? IconlyLight.show : IconlyLight.hide,
-                  size: 20,
-                ),
-              )
-            : null,
         prefixIcon: Transform.scale(
           scale: 0.5,
           child: ImageIcon(
             AssetImage(
-              widget.iconPath,
+              iconPath,
             ),
           ),
         ),
@@ -107,7 +64,7 @@ class _AuthTextFormFieldState extends State<AuthTextFormField> {
         errorStyle: Theme.of(context).textTheme.labelMedium!.copyWith(
               color: const Color(0xFFFF0000),
             ),
-        hintText: widget.hintText,
+        hintText: hintText,
         hintStyle: Theme.of(context).textTheme.labelMedium!.copyWith(
               color: const Color(0xFFADA4A5),
             ),
@@ -116,10 +73,9 @@ class _AuthTextFormFieldState extends State<AuthTextFormField> {
           vertical: 12,
         ),
       ),
-      validator: widget.validator,
-      enabled: widget.enabled,
-      onTap: widget.onTap,
-      style: Theme.of(context).textTheme.labelMedium,
+      validator: validator,
+      items: items,
+      onChanged: onChanged,
     );
   }
 }
