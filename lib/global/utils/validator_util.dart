@@ -46,4 +46,40 @@ class ValidatorUtil {
     }
     return null;
   }
+
+  String? genderValidator(String? value) {
+    if (value == null || value.trim().isEmpty) {
+      return 'Please choose your gender';
+    }
+    return null;
+  }
+
+  String? dateOfBirthValidator(String? value) {
+    if (value == null || value.trim().isEmpty) {
+      return 'Please fill your date of birth';
+    }
+    return null;
+  }
+
+  String? weightValidator(String? value) {
+    if (value == null || value.trim().isEmpty) {
+      return 'Please fill your body weight';
+    }
+    double weight = double.parse(value);
+    if (weight < 0.0 || weight > 500.0) {
+      return 'Please enter a valid body weight';
+    }
+    return null;
+  }
+
+  String? heightValidator(String? value) {
+    if (value == null || value.trim().isEmpty) {
+      return 'Please fill your body weight';
+    }
+    double height = double.parse(value);
+    if (height < 0.0 || height > 300.0) {
+      return 'Please enter a valid body height';
+    }
+    return null;
+  }
 }
