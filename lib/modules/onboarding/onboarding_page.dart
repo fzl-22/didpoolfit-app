@@ -63,7 +63,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
                     height: 50,
                     width: 50,
                     decoration: BoxDecoration(
-                      gradient: logoLinear,
+                      gradient: ColorUtil.logoLinear,
                       borderRadius: BorderRadius.circular(25),
                     ),
                     child: InkWell(
@@ -109,7 +109,7 @@ class DotIndicator extends StatelessWidget {
       height: isActive ? 12 : 4,
       width: 4,
       decoration: BoxDecoration(
-        gradient: logoLinear,
+        gradient: ColorUtil.logoLinear,
         borderRadius: BorderRadius.circular(12),
       ),
       duration: const Duration(milliseconds: 300),

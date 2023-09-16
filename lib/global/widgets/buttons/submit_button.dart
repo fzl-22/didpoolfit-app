@@ -18,7 +18,7 @@ class SubmitButton extends StatelessWidget {
       height: 60,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(99),
-        gradient: logoLinear,
+        gradient: ColorUtil.logoLinear,
       ),
       child: ElevatedButton(
         style: ElevatedButton.styleFrom(

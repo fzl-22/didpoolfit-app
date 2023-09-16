@@ -1,3 +1,4 @@
+import 'package:didpoolfit/global/utils/validator_util.dart';
 import 'package:didpoolfit/global/widgets/buttons/submit_button.dart';
 import 'package:didpoolfit/modules/auth/widgets/buttons/auth_navigation_button.dart';
 import 'package:didpoolfit/modules/auth/widgets/fields/eula_checkbox.dart';
@@ -14,15 +15,36 @@ class RegisterPage extends StatefulWidget {
 }
 
 class _RegisterPageState extends State<RegisterPage> {
+  final _formKey = GlobalKey<FormState>();
+  final _fullNameController = TextEditingController();
+  final _phoneNumberController = TextEditingController();
+  final _emailController = TextEditingController();
+  final _passwordController = TextEditingController();
+  bool _isAgree = false;
+
+  Future<void> _registerUser() async {
+    if (!_formKey.currentState!.validate()) {
+      return;
+    }
+
+    if (_isAgree == false) {
+      showDialog(
+        context: context,
+        builder: (context) {
+          return AlertDialog(
+            content: Text(
+              "You must be agreed to the Privacy Policy and Term of Use before using the application",
+              style: Theme.of(context).textTheme.labelLarge,
+            ),
+          );
+        },
+      );
+      return;
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
-    final formKey = GlobalKey<FormState>(); 
-    final fullNameController = TextEditingController();
-    final phoneNumberController = TextEditingController();
-    final emailController = TextEditingController();
-    final passwordController = TextEditingController();
-    bool isAgree = false;
-
     return SafeArea(
       child: Scaffold(
         body: SingleChildScrollView(
@@ -34,7 +56,7 @@ class _RegisterPageState extends State<RegisterPage> {
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 24),
                   child: Form(
-                    key: formKey,
+                    key: _formKey,
                     child: Column(
                       children: [
                         Text(
@@ -48,48 +70,46 @@ class _RegisterPageState extends State<RegisterPage> {
                         ),
                         const SizedBox(height: 24),
                         AuthTextFormField(
-                          controller: fullNameController,
+                          controller: _fullNameController,
                           hintText: "Full Name",
                           iconPath: 'assets/icons/form/profile.png',
+                          validator: ValidatorUtil().fullNameValidator,
                         ),
                         const SizedBox(height: 12),
                         AuthTextFormField(
-                          controller: phoneNumberController,
+                          controller: _phoneNumberController,
                           hintText: "Phone Number",
                           iconPath: 'assets/icons/form/phone.png',
                           keyboardType: TextInputType.number,
+                          validator: ValidatorUtil().phoneNumberValidator,
                         ),
                         const SizedBox(height: 12),
                         AuthTextFormField(
-                          controller: emailController,
+                          controller: _emailController,
                           hintText: "Email",
                           iconPath: 'assets/icons/form/message.png',
                           keyboardType: TextInputType.emailAddress,
+                          validator: ValidatorUtil().emailValidator,
                         ),
                         const SizedBox(height: 12),
                         AuthTextFormField(
-                          controller: passwordController,
+                          controller: _passwordController,
                           hintText: "Password",
                           iconPath: 'assets/icons/form/lock.png',
                           keyboardType: TextInputType.visiblePassword,
+                          validator: ValidatorUtil().passwordValidator,
                           obscureText: true,
                           isPassword: true,
                         ),
                         const SizedBox(height: 12),
                         EULACheckbox(
                           onChanged: (value) {
-                            isAgree = value!;
+                            _isAgree = value!;
                           },
                         ),
                         const SizedBox(height: 36),
                         SubmitButton(
-                          onPressed: () {
-                            print("Full Name: ${fullNameController.text}");
-                            print("Phone Number: ${phoneNumberController.text}");
-                            print("Email: ${emailController.text}");
-                            print("Password: ${passwordController.text}");
-                            print("Agreement: ${isAgree}");
-                          },
+                          onPressed: _registerUser,
                           child: const Text("Register"),
                         ),
                       ],
