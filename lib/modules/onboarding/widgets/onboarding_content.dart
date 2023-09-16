@@ -42,7 +42,7 @@ class OnboardingContent extends StatelessWidget {
               Text(
                 description,
                 style: Theme.of(context).textTheme.bodySmall!.copyWith(
-                      color: gray1,
+                      color: ColorUtil.gray1,
                     ),
               )
             ],

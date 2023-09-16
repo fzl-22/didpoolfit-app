@@ -8,6 +8,7 @@ class AuthTextFormField extends StatefulWidget {
   final TextInputType keyboardType;
   final bool obscureText;
   final bool isPassword;
+  final String? Function(String?)? validator;
 
   const AuthTextFormField({
     super.key,
@@ -17,6 +18,7 @@ class AuthTextFormField extends StatefulWidget {
     this.keyboardType = TextInputType.name,
     this.obscureText = false,
     this.isPassword = false,
+    required this.validator,
   });
 
   @override
@@ -26,14 +28,14 @@ class AuthTextFormField extends StatefulWidget {
 class _AuthTextFormFieldState extends State<AuthTextFormField> {
   bool isVisible = false;
 
-  bool get obscureTextValue{
-    if(widget.obscureText == true && isVisible == true){
+  bool get obscureTextValue {
+    if (widget.obscureText == true && isVisible == true) {
       return false;
-    }else if(widget.obscureText == true && isVisible == false){
+    } else if (widget.obscureText == true && isVisible == false) {
       return true;
-    }else if(widget.obscureText == false && isVisible == true){
+    } else if (widget.obscureText == false && isVisible == true) {
       return false;
-    }else {
+    } else {
       return false;
     }
   }
@@ -47,16 +49,16 @@ class _AuthTextFormFieldState extends State<AuthTextFormField> {
       decoration: InputDecoration(
         suffixIcon: widget.isPassword
             ? GestureDetector(
-              onTap: () {
-                setState(() {
-                  isVisible = !isVisible;
-                });
-              },
-              child: Icon(
+                onTap: () {
+                  setState(() {
+                    isVisible = !isVisible;
+                  });
+                },
+                child: Icon(
                   isVisible ? IconlyLight.show : IconlyLight.hide,
                   size: 20,
                 ),
-            )
+              )
             : null,
         prefixIcon: Transform.scale(
           scale: 0.5,
@@ -80,7 +82,19 @@ class _AuthTextFormFieldState extends State<AuthTextFormField> {
             color: Color(0xFF6B50F6),
           ),
         ),
-        // label: const Text("Full Name"),
+        errorBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(14),
+          borderSide: const BorderSide(
+            color: Color(0xFFFF0000),
+          ),
+        ),
+        focusedErrorBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(14),
+          borderSide: const BorderSide(
+            color: Color(0xFFFF0000),
+          ),
+        ),
+        errorStyle: Theme.of(context).textTheme.labelMedium!.copyWith(color: const Color(0xFFFF0000),),
         hintText: widget.hintText,
         hintStyle: Theme.of(context).textTheme.labelMedium!.copyWith(
               color: const Color(0xFFADA4A5),
@@ -89,8 +103,8 @@ class _AuthTextFormFieldState extends State<AuthTextFormField> {
           horizontal: 12,
           vertical: 12,
         ),
-        
       ),
+      validator: widget.validator,
       style: Theme.of(context).textTheme.labelMedium,
     );
   }
