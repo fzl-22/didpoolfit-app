@@ -1,9 +1,11 @@
 import 'package:didpoolfit/global/utils/validator_util.dart';
 import 'package:didpoolfit/global/widgets/buttons/submit_button.dart';
 import 'package:didpoolfit/modules/auth/widgets/buttons/auth_navigation_button.dart';
+import 'package:didpoolfit/modules/auth/widgets/etc/auth_divider.dart';
 import 'package:didpoolfit/modules/auth/widgets/fields/auth_text_form_field.dart';
 import 'package:didpoolfit/modules/auth/widgets/buttons/social_media_auth_button.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:iconly/iconly.dart';
 import 'package:icons_plus/icons_plus.dart';
 
@@ -70,6 +72,27 @@ class _LoginPageState extends State<LoginPage> {
                           obscureText: true,
                           isPassword: true,
                         ),
+                        const SizedBox(height: 12),
+                        Row(mainAxisAlignment: MainAxisAlignment.end,
+                          children: [
+                            TextButton(
+                              style: TextButton.styleFrom(
+                                padding: const EdgeInsets.all(0),
+                                tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                                minimumSize: Size.zero,
+                                foregroundColor: const Color(0xFFADA4A5),
+                                textStyle: Theme.of(context)
+                                    .textTheme
+                                    .labelMedium!
+                                    .copyWith(
+                                      decoration: TextDecoration.underline,
+                                    ),
+                              ),
+                              onPressed: () {},
+                              child: const Text("Forgot password?"),
+                            ),
+                          ],
+                        ),
                         const SizedBox(height: 36),
                         SubmitButton(
                           onPressed: _loginUser,
@@ -86,36 +109,7 @@ class _LoginPageState extends State<LoginPage> {
                     ),
                   ),
                 ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(
-                    horizontal: 24,
-                    vertical: 16,
-                  ),
-                  child: Row(
-                    children: [
-                      const Flexible(
-                        child: Divider(
-                          endIndent: 8,
-                          height: 2,
-                          thickness: 1,
-                          color: Color(0xFFDDDADA),
-                        ),
-                      ),
-                      Text(
-                        "Or",
-                        style: Theme.of(context).textTheme.bodyMedium,
-                      ),
-                      const Flexible(
-                        child: Divider(
-                          indent: 8,
-                          height: 2,
-                          thickness: 1,
-                          color: Color(0xFFDDDADA),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
+                const AuthDivider(),
                 Container(
                   padding: const EdgeInsets.symmetric(horizontal: 24),
                   child: Column(
@@ -138,9 +132,7 @@ class _LoginPageState extends State<LoginPage> {
                       AuthNavigationButton(
                         normalText: "Don't have an account yet? ",
                         buttonText: "Register",
-                        onTap: () {
-                          Navigator.of(context).pushReplacementNamed('/register');
-                        },
+                        onTap: () => context.go('/register'),
                       ),
                     ],
                   ),

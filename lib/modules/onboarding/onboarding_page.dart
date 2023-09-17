@@ -1,7 +1,8 @@
+import 'package:didpoolfit/global/data/onboarding_content_data.dart';
 import 'package:didpoolfit/global/utils/color_util.dart';
 import 'package:didpoolfit/global/widgets/indicators/dot_indicator.dart';
-import 'package:didpoolfit/modules/onboarding/data/onboarding_content_list.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class OnboardingPage extends StatefulWidget {
   const OnboardingPage({super.key});
@@ -35,14 +36,14 @@ class _OnboardingPageState extends State<OnboardingPage> {
           Expanded(
             child: PageView.builder(
               controller: _pageController,
-              itemCount: onboardingContentList.length,
+              itemCount: onboardingContentData.length,
               onPageChanged: (index) {
                 setState(() {
                   _pageIndex = index;
                 });
               },
               itemBuilder: (context, index) {
-                return onboardingContentList[index];
+                return onboardingContentData[index];
               },
             ),
           ),
@@ -51,7 +52,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
             child: Row(
               children: [
                 ...List.generate(
-                    onboardingContentList.length,
+                    onboardingContentData.length,
                     (index) => Padding(
                           padding: const EdgeInsets.only(right: 4.0),
                           child: DotIndicator(
@@ -70,9 +71,8 @@ class _OnboardingPageState extends State<OnboardingPage> {
                     child: InkWell(
                       borderRadius: BorderRadius.circular(25),
                       onTap: () {
-                        if (_pageIndex == onboardingContentList.length - 1) {
-                          Navigator.of(context)
-                              .pushReplacementNamed("/register");
+                        if (_pageIndex == onboardingContentData.length - 1) {
+                          context.go('/register');
                         }
                         _pageController.nextPage(
                           duration: const Duration(milliseconds: 500),
