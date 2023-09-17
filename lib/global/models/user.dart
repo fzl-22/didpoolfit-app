@@ -5,6 +5,7 @@ class User {
   String fullName;
   String phoneNumber;
   String emailAddress;
+  String password;
   String gender;
   DateTime dateOfBirth;
   double bodyWeight;
@@ -16,6 +17,7 @@ class User {
     required this.fullName,
     required this.phoneNumber,
     required this.emailAddress,
+    required this.password,
     required this.gender,
     required this.dateOfBirth,
     required this.bodyWeight,
