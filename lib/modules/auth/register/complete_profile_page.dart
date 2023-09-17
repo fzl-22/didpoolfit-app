@@ -1,6 +1,6 @@
 import 'package:didpoolfit/global/utils/validator_util.dart';
 import 'package:didpoolfit/global/widgets/buttons/submit_button.dart';
-import 'package:didpoolfit/modules/auth/choose_program_page.dart';
+import 'package:didpoolfit/modules/auth/register/choose_program_page.dart';
 import 'package:didpoolfit/modules/auth/widgets/etc/gradient_square.dart';
 import 'package:didpoolfit/modules/auth/widgets/fields/auth_date_form_field.dart';
 import 'package:didpoolfit/modules/auth/widgets/fields/auth_dropdown_button_form_field.dart';
