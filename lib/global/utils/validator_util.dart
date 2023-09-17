@@ -33,9 +33,20 @@ class ValidatorUtil {
     return null;
   }
 
+  String? loginEmailValidator(String? value) {
+    if (value == null || value.trim().isEmpty) {
+      return 'Please enter your email address';
+    }
+    if (!RegExp(r'^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,7}$')
+        .hasMatch(value)) {
+      return 'Please enter a valid email address';
+    }
+    return null;
+  }
+
   String? passwordValidator(String? value) {
     if (value == null || value.trim().isEmpty) {
-      return 'Please enter your password address';
+      return 'Please enter your password';
     }
     if (value.trim().length < 8 || value.trim().length > 16) {
       return 'Password length must be between 8 and 16 characters';
@@ -43,6 +54,13 @@ class ValidatorUtil {
     final alphanumeric = RegExp(r'^[a-zA-Z0-9]+$');
     if (!alphanumeric.hasMatch(value)) {
       return 'Password must consist of alphanumeric characters';
+    }
+    return null;
+  }
+
+  String? loginPasswordValidator(String? value) {
+    if (value == null || value.trim().isEmpty) {
+      return 'Please enter your password';
     }
     return null;
   }
@@ -65,7 +83,10 @@ class ValidatorUtil {
     if (value == null || value.trim().isEmpty) {
       return 'Please fill your body weight';
     }
-    double weight = double.parse(value);
+    double? weight = double.tryParse(value);
+    if (weight == null) {
+      return 'Please enter a valid number';
+    }
     if (weight < 0.0 || weight > 500.0) {
       return 'Please enter a valid body weight';
     }
@@ -76,7 +97,10 @@ class ValidatorUtil {
     if (value == null || value.trim().isEmpty) {
       return 'Please fill your body weight';
     }
-    double height = double.parse(value);
+    double? height = double.tryParse(value);
+    if (height == null) {
+      return 'Please enter a valid number';
+    }
     if (height < 0.0 || height > 300.0) {
       return 'Please enter a valid body height';
     }

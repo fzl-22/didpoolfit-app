@@ -1,3 +1,4 @@
+import 'package:didpoolfit/modules/auth/login/login_page.dart';
 import 'package:didpoolfit/modules/auth/register/register_page.dart';
 import 'package:didpoolfit/modules/welcome/welcome_page.dart';
 import 'package:flutter/material.dart';
@@ -56,6 +57,7 @@ class MyApp extends StatelessWidget {
       routes: {
         "/welcome":(context) => const WelcomePage(),
         "/register":(context) => const RegisterPage(),
+        "/login":(context) => const LoginPage(),
       },
       initialRoute: "/welcome",
     );
