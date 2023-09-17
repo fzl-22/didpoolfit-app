@@ -72,7 +72,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
                       onTap: () {
                         if (_pageIndex == onboardingContentList.length - 1) {
                           Navigator.of(context)
-                              .pushReplacementNamed("register_page");
+                              .pushReplacementNamed("/register");
                         }
                         _pageController.nextPage(
                           duration: const Duration(milliseconds: 500),

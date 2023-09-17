@@ -9,7 +9,8 @@ class ChooseProgramPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Program selectedProgram = programData[0];
+    int initialPage = 0;
+    Program selectedProgram = programData[initialPage];
 
     return Scaffold(
       body: SafeArea(
@@ -41,7 +42,7 @@ class ChooseProgramPage extends StatelessWidget {
               ),
               ProgramListCarousel(
                 itemData: programData,
-                initialPage: 0,
+                initialPage: initialPage,
                 selectData: (program) {
                   selectedProgram = program;
                 },

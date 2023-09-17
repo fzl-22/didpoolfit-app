@@ -1,6 +1,6 @@
 import 'package:didpoolfit/global/utils/validator_util.dart';
 import 'package:didpoolfit/global/widgets/buttons/submit_button.dart';
-import 'package:didpoolfit/modules/auth/complete_profile_page.dart';
+import 'package:didpoolfit/modules/auth/register/complete_profile_page.dart';
 import 'package:didpoolfit/modules/auth/widgets/buttons/auth_navigation_button.dart';
 import 'package:didpoolfit/modules/auth/widgets/fields/eula_checkbox.dart';
 import 'package:didpoolfit/modules/auth/widgets/fields/auth_text_form_field.dart';
