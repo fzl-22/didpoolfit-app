@@ -1,6 +1,7 @@
 import 'package:didpoolfit/global/models/program.dart';
 import 'package:didpoolfit/global/models/user.dart';
 import 'package:didpoolfit/global/providers/program_content_provider.dart';
+import 'package:didpoolfit/global/providers/users_provider.dart';
 import 'package:didpoolfit/global/utils/uuid_util.dart';
 import 'package:didpoolfit/global/widgets/buttons/submit_button.dart';
 import 'package:didpoolfit/modules/auth/widgets/carousels/program_list_carousel.dart';
@@ -17,7 +18,7 @@ class ChooseProgramPage extends ConsumerWidget {
   });
 
   Future<void> _createUser(
-      BuildContext context, Program selectedProgram) async {
+      BuildContext context, WidgetRef ref, Program selectedProgram) async {
     final user = {
       ...userData,
       "preferredProgram": selectedProgram,
@@ -36,13 +37,15 @@ class ChooseProgramPage extends ConsumerWidget {
       preferredProgram: selectedProgram,
     );
 
+    ref.read(usersProvider.notifier).createUser(newUser);
+    
     context.go('/login');
   }
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final programContentData = ref.watch(programContentProvider);
-    
+
     int initialPage = 0;
     Program selectedProgram = programContentData[initialPage];
 
@@ -85,7 +88,7 @@ class ChooseProgramPage extends ConsumerWidget {
                 padding: const EdgeInsets.symmetric(horizontal: 24),
                 child: SubmitButton(
                   onPressed: () {
-                    _createUser(context, selectedProgram);
+                    _createUser(context, ref, selectedProgram);
                   },
                   child: const Text("Confirm"),
                 ),

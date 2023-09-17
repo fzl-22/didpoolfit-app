@@ -1,13 +1,20 @@
 import 'package:didpoolfit/modules/auth/login/login_page.dart';
+import 'package:didpoolfit/modules/auth/login/login_success_page.dart';
 import 'package:didpoolfit/modules/auth/register/choose_program_page.dart';
 import 'package:didpoolfit/modules/auth/register/complete_profile_page.dart';
 import 'package:didpoolfit/modules/auth/register/register_page.dart';
+import 'package:didpoolfit/modules/home/home_page.dart';
 import 'package:didpoolfit/modules/welcome/welcome_page.dart';
 import 'package:go_router/go_router.dart';
 
 final routers = GoRouter(
   initialLocation: '/welcome',
   routes: [
+    GoRoute(
+      name: "home",
+      path: "/home",
+      builder: (context, state) => const HomePage(),
+    ),
     GoRoute(
       name: 'welcome',
       path: '/welcome',
@@ -17,11 +24,6 @@ final routers = GoRouter(
       name: 'register',
       path: '/register',
       builder: (context, state) => const RegisterPage(),
-    ),
-    GoRoute(
-      name: 'login',
-      path: '/login',
-      builder: (context, state) => const LoginPage(),
     ),
     GoRoute(
       name: 'complete-profile',
@@ -39,6 +41,16 @@ final routers = GoRouter(
             state.extra as Map<String, dynamic>;
         return ChooseProgramPage(userData: userData);
       },
+    ),
+    GoRoute(
+      name: 'login',
+      path: '/login',
+      builder: (context, state) => const LoginPage(),
+    ),
+    GoRoute(
+      name: 'login-success',
+      path: '/login/login-success',
+      builder: (context, state) => const LoginSuccessPage(),
     ),
   ],
 );

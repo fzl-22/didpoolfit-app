@@ -27,6 +27,7 @@ class _LoginPageState extends State<LoginPage> {
     }
 
     _formKey.currentState!.save();
+    context.go('/login/login-success');
   }
 
   @override
@@ -73,7 +74,8 @@ class _LoginPageState extends State<LoginPage> {
                           isPassword: true,
                         ),
                         const SizedBox(height: 12),
-                        Row(mainAxisAlignment: MainAxisAlignment.end,
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.end,
                           children: [
                             TextButton(
                               style: TextButton.styleFrom(
