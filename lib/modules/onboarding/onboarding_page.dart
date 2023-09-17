@@ -1,4 +1,5 @@
 import 'package:didpoolfit/global/utils/color_util.dart';
+import 'package:didpoolfit/global/widgets/indicators/dot_indicator.dart';
 import 'package:didpoolfit/modules/onboarding/data/onboarding_content_list.dart';
 import 'package:flutter/material.dart';
 
@@ -95,27 +96,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
   }
 }
 
-class DotIndicator extends StatelessWidget {
-  final bool isActive;
 
-  const DotIndicator({
-    super.key,
-    this.isActive = false,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return AnimatedContainer(
-      height: isActive ? 12 : 4,
-      width: 4,
-      decoration: BoxDecoration(
-        gradient: ColorUtil.logoLinear,
-        borderRadius: BorderRadius.circular(12),
-      ),
-      duration: const Duration(milliseconds: 300),
-    );
-  }
-}
 
 // class WaveClipper extends CustomClipper<Path> {
 //   @override

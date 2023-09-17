@@ -20,10 +20,10 @@ class OnboardingContent extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
         SizedBox(
-          height: 0.5 * MediaQuery.of(context).size.height,
+          height: 0.525 * MediaQuery.of(context).size.height,
           child: Image.asset(
             image,
-            fit: BoxFit.fitWidth,
+            fit: BoxFit.cover,
           ),
         ),
         Container(
