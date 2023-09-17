@@ -138,7 +138,9 @@ class _LoginPageState extends State<LoginPage> {
                       AuthNavigationButton(
                         normalText: "Don't have an account yet? ",
                         buttonText: "Register",
-                        onTap: () {},
+                        onTap: () {
+                          Navigator.of(context).pushReplacementNamed('/register');
+                        },
                       ),
                     ],
                   ),

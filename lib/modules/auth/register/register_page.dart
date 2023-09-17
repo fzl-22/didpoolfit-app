@@ -179,7 +179,9 @@ class _RegisterPageState extends State<RegisterPage> {
                       AuthNavigationButton(
                         normalText: "Already have an account? ",
                         buttonText: "Login",
-                        onTap: () {},
+                        onTap: () {
+                          Navigator.of(context).pushReplacementNamed('/login');
+                        },
                       ),
                     ],
                   ),
