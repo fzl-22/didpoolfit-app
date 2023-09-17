@@ -1,12 +1,14 @@
-import 'package:didpoolfit/global/data/program_data.dart';
 import 'package:didpoolfit/global/models/program.dart';
 import 'package:didpoolfit/global/models/user.dart';
+import 'package:didpoolfit/global/providers/program_content_provider.dart';
+import 'package:didpoolfit/global/utils/uuid_util.dart';
 import 'package:didpoolfit/global/widgets/buttons/submit_button.dart';
 import 'package:didpoolfit/modules/auth/widgets/carousels/program_list_carousel.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
-class ChooseProgramPage extends StatelessWidget {
+class ChooseProgramPage extends ConsumerWidget {
   final Map<String, dynamic> userData;
 
   const ChooseProgramPage({
@@ -18,32 +20,31 @@ class ChooseProgramPage extends StatelessWidget {
       BuildContext context, Program selectedProgram) async {
     final user = {
       ...userData,
-      "preferredProgram": selectedProgram.title,
+      "preferredProgram": selectedProgram,
     };
 
     final newUser = User(
-      userId: "1",
+      userId: UuidUtil().getUid(),
       fullName: user['fullName'],
       phoneNumber: user['phoneNumber'],
       emailAddress: user['emailAddress'],
+      password: user['password'],
       gender: user['gender'],
       dateOfBirth: user['dateOfBirth'],
       bodyWeight: double.parse(user['bodyWeight']),
       bodyHeight: double.parse(user['bodyHeight']),
-      preferredProgram: programData
-          .where((program) => program.title == user['preferredProgram'])
-          .toList()[0],
+      preferredProgram: selectedProgram,
     );
-
-    // create user
 
     context.go('/login');
   }
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final programContentData = ref.watch(programContentProvider);
+    
     int initialPage = 0;
-    Program selectedProgram = programData[initialPage];
+    Program selectedProgram = programContentData[initialPage];
 
     return Scaffold(
       body: SafeArea(
@@ -74,7 +75,7 @@ class ChooseProgramPage extends StatelessWidget {
                 ),
               ),
               ProgramListCarousel(
-                itemData: programData,
+                itemData: programContentData,
                 initialPage: initialPage,
                 selectData: (program) {
                   selectedProgram = program;

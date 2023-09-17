@@ -50,6 +50,7 @@ class _RegisterPageState extends State<RegisterPage> {
       "fullName": _fullNameController.text,
       "phoneNumber": _phoneNumberController.text,
       "emailAddress": _emailController.text,
+      "password": _passwordController.text,
     };
 
     context.go('/register/complete-profile', extra: userData);

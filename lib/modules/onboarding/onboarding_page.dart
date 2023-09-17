@@ -1,17 +1,18 @@
-import 'package:didpoolfit/global/data/onboarding_content_data.dart';
+import 'package:didpoolfit/global/providers/onboarding_content_provider.dart';
 import 'package:didpoolfit/global/utils/color_util.dart';
 import 'package:didpoolfit/global/widgets/indicators/dot_indicator.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
-class OnboardingPage extends StatefulWidget {
+class OnboardingPage extends ConsumerStatefulWidget {
   const OnboardingPage({super.key});
 
   @override
-  State<OnboardingPage> createState() => _OnboardingPageState();
+  ConsumerState<OnboardingPage> createState() => _OnboardingPageState();
 }
 
-class _OnboardingPageState extends State<OnboardingPage> {
+class _OnboardingPageState extends ConsumerState<OnboardingPage> {
   late PageController _pageController;
 
   int _pageIndex = 0;
@@ -30,6 +31,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
 
   @override
   Widget build(BuildContext context) {
+    final onboardingContentData = ref.watch(onboardingContentProvider);
     return Scaffold(
       body: Column(
         children: [
