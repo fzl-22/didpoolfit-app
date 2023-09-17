@@ -1,57 +1,30 @@
 import 'package:didpoolfit/global/utils/validator_util.dart';
 import 'package:didpoolfit/global/widgets/buttons/submit_button.dart';
-import 'package:didpoolfit/modules/auth/register/complete_profile_page.dart';
 import 'package:didpoolfit/modules/auth/widgets/buttons/auth_navigation_button.dart';
-import 'package:didpoolfit/modules/auth/widgets/fields/eula_checkbox.dart';
 import 'package:didpoolfit/modules/auth/widgets/fields/auth_text_form_field.dart';
 import 'package:didpoolfit/modules/auth/widgets/buttons/social_media_auth_button.dart';
 import 'package:flutter/material.dart';
+import 'package:iconly/iconly.dart';
 import 'package:icons_plus/icons_plus.dart';
 
-class RegisterPage extends StatefulWidget {
-  const RegisterPage({super.key});
+class LoginPage extends StatefulWidget {
+  const LoginPage({super.key});
 
   @override
-  State<RegisterPage> createState() => _RegisterPageState();
+  State<LoginPage> createState() => _LoginPageState();
 }
 
-class _RegisterPageState extends State<RegisterPage> {
+class _LoginPageState extends State<LoginPage> {
   final _formKey = GlobalKey<FormState>();
-  final _fullNameController = TextEditingController();
-  final _phoneNumberController = TextEditingController();
   final _emailController = TextEditingController();
   final _passwordController = TextEditingController();
-  bool _isAgree = false;
 
-  Future<void> _registerUser() async {
+  Future<void> _loginUser() async {
     if (!_formKey.currentState!.validate()) {
       return;
     }
 
-    if (_isAgree == false) {
-      showDialog(
-        context: context,
-        builder: (context) {
-          return AlertDialog(
-            content: Text(
-              "You must be agreed to the Privacy Policy and Term of Use before using the application",
-              style: Theme.of(context).textTheme.labelLarge,
-            ),
-          );
-        },
-      );
-      return;
-    }
-
     _formKey.currentState!.save();
-
-    Navigator.of(context).push(
-      MaterialPageRoute(
-        builder: (context) {
-          return const CompleteProfilePage();
-        },
-      ),
-    );
   }
 
   @override
@@ -76,31 +49,16 @@ class _RegisterPageState extends State<RegisterPage> {
                         ),
                         const SizedBox(height: 4),
                         Text(
-                          "Create an Account",
+                          "Welcome Back",
                           style: Theme.of(context).textTheme.titleSmall,
                         ),
                         const SizedBox(height: 24),
-                        AuthTextFormField(
-                          controller: _fullNameController,
-                          hintText: "Full Name",
-                          iconPath: 'assets/icons/form/profile.png',
-                          validator: ValidatorUtil().fullNameValidator,
-                        ),
-                        const SizedBox(height: 12),
-                        AuthTextFormField(
-                          controller: _phoneNumberController,
-                          hintText: "Phone Number",
-                          iconPath: 'assets/icons/form/phone.png',
-                          keyboardType: TextInputType.number,
-                          validator: ValidatorUtil().phoneNumberValidator,
-                        ),
-                        const SizedBox(height: 12),
                         AuthTextFormField(
                           controller: _emailController,
                           hintText: "Email",
                           iconPath: 'assets/icons/form/message.png',
                           keyboardType: TextInputType.emailAddress,
-                          validator: ValidatorUtil().emailValidator,
+                          validator: ValidatorUtil().loginEmailValidator,
                         ),
                         const SizedBox(height: 12),
                         AuthTextFormField(
@@ -108,20 +66,21 @@ class _RegisterPageState extends State<RegisterPage> {
                           hintText: "Password",
                           iconPath: 'assets/icons/form/lock.png',
                           keyboardType: TextInputType.visiblePassword,
-                          validator: ValidatorUtil().passwordValidator,
+                          validator: ValidatorUtil().loginPasswordValidator,
                           obscureText: true,
                           isPassword: true,
                         ),
-                        const SizedBox(height: 12),
-                        EULACheckbox(
-                          onChanged: (value) {
-                            _isAgree = value!;
-                          },
-                        ),
                         const SizedBox(height: 36),
                         SubmitButton(
-                          onPressed: _registerUser,
-                          child: const Text("Register"),
+                          onPressed: _loginUser,
+                          child: const Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Icon(IconlyBold.login),
+                              SizedBox(width: 12),
+                              Text("Login"),
+                            ],
+                          ),
                         ),
                       ],
                     ),
@@ -177,8 +136,8 @@ class _RegisterPageState extends State<RegisterPage> {
                       ),
                       const SizedBox(height: 16),
                       AuthNavigationButton(
-                        normalText: "Already have an account? ",
-                        buttonText: "Login",
+                        normalText: "Don't have an account yet? ",
+                        buttonText: "Register",
                         onTap: () {},
                       ),
                     ],

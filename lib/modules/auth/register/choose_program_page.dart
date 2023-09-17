@@ -50,7 +50,9 @@ class ChooseProgramPage extends StatelessWidget {
               Container(
                 padding: const EdgeInsets.symmetric(horizontal: 24),
                 child: SubmitButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.of(context).pushReplacementNamed("/login");
+                  },
                   child: const Text("Confirm"),
                 ),
               ),
