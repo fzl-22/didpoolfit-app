@@ -21,6 +21,7 @@ class AuthDropdownButtonFormField extends StatelessWidget {
     return DropdownButtonFormField(
       style: Theme.of(context).textTheme.labelMedium,
       decoration: InputDecoration(
+        
         prefixIcon: Transform.scale(
           scale: 0.5,
           child: ImageIcon(
