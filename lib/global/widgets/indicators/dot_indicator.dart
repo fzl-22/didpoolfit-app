@@ -12,8 +12,8 @@ class DotIndicator extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AnimatedContainer(
-      height: isActive ? 12 : 4,
-      width: 4,
+      height: isActive ? 18 : 6,
+      width: 6,
       decoration: BoxDecoration(
         gradient: ColorUtil.logoLinear,
         borderRadius: BorderRadius.circular(12),

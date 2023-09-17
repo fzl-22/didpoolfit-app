@@ -49,7 +49,7 @@ class _ProgramListCarouselState extends State<ProgramListCarousel> {
           ),
         ),
         const SizedBox(
-          height: 12,
+          height: 24,
         ),
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
