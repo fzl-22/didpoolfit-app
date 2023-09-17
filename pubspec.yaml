@@ -69,6 +69,7 @@ flutter:
     - assets/images/onboarding/
     - assets/images/form/
     - assets/images/choose-program/
+    - assets/images/login/
     - assets/icons/form/
     - assets/icons/complete-profile/
 
