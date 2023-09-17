@@ -1,3 +1,4 @@
+import 'package:didpoolfit/global/utils/color_util.dart';
 import 'package:flutter/material.dart';
 
 class BottomNavigationBarIcon extends StatelessWidget {
@@ -12,17 +13,25 @@ class BottomNavigationBarIcon extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Icon(icon),
-        const SizedBox(
-          height: 4,
-        ),
-        CircleAvatar(
-          backgroundColor: isActive ? Theme.of(context).colorScheme.primary : Theme.of(context).colorScheme.onPrimary,
-          radius: 2,
-        )
-      ],
+    return ShaderMask(
+      shaderCallback: (bounds) {
+        return ColorUtil.logoLinear.createShader(bounds);
+      },
+      child: Column(
+        children: [
+          Icon(
+            icon,
+            color: Colors.white,
+          ),
+          const SizedBox(
+            height: 4,
+          ),
+          CircleAvatar(
+            backgroundColor: isActive ? Colors.white : Colors.transparent,
+            radius: 2,
+          )
+        ],
+      ),
     );
   }
 }
