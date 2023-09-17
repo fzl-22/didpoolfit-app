@@ -1,6 +1,4 @@
-import 'package:didpoolfit/modules/auth/login/login_page.dart';
-import 'package:didpoolfit/modules/auth/register/register_page.dart';
-import 'package:didpoolfit/modules/welcome/welcome_page.dart';
+import 'package:didpoolfit/global/configs/go_router_conf.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -13,7 +11,7 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return MaterialApp.router(
       title: 'Flutter Demo',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
@@ -54,12 +52,7 @@ class MyApp extends StatelessWidget {
           ),
         ),
       ),
-      routes: {
-        "/welcome":(context) => const WelcomePage(),
-        "/register":(context) => const RegisterPage(),
-        "/login":(context) => const LoginPage(),
-      },
-      initialRoute: "/welcome",
+      routerConfig: routers,
     );
   }
 }

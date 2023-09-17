@@ -1,14 +1,19 @@
 import 'package:didpoolfit/global/utils/validator_util.dart';
 import 'package:didpoolfit/global/widgets/buttons/submit_button.dart';
-import 'package:didpoolfit/modules/auth/register/choose_program_page.dart';
 import 'package:didpoolfit/modules/auth/widgets/etc/gradient_square.dart';
 import 'package:didpoolfit/modules/auth/widgets/fields/auth_date_form_field.dart';
 import 'package:didpoolfit/modules/auth/widgets/fields/auth_dropdown_button_form_field.dart';
 import 'package:didpoolfit/modules/auth/widgets/fields/auth_text_form_field.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class CompleteProfilePage extends StatefulWidget {
-  const CompleteProfilePage({super.key});
+  final Map<String, String> userData;
+
+  const CompleteProfilePage({
+    super.key,
+    required this.userData,
+  });
 
   @override
   State<CompleteProfilePage> createState() => _CompleteProfilePageState();
@@ -49,9 +54,23 @@ class _CompleteProfilePageState extends State<CompleteProfilePage> {
 
     _formKey.currentState!.save();
 
-    Navigator.of(context).push(
-      MaterialPageRoute(builder: (context) => const ChooseProgramPage(),),
+    final userData = {
+      ...widget.userData,
+      "gender": _selectedGender,
+      "dateOfBirth": _selectedDate,
+      "bodyWeight": _weightController.text,
+      "bodyHeight": _heightController.text,
+    };
+
+    context.go(
+      '/register/complete-profile/choose-program',
+      extra: userData,
     );
+  }
+
+  @override
+  void initState() {
+    super.initState();
   }
 
   @override

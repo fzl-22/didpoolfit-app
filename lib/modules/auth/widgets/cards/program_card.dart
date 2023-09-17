@@ -35,7 +35,7 @@ class ProgramCard extends StatelessWidget {
             flex: 1,
             child: Column(
               children: [
-                const SizedBox(height: 24),
+                const SizedBox(height: 20),
                 Text(
                   title,
                   textAlign: TextAlign.center,

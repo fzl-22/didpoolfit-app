@@ -1,6 +1,6 @@
 import 'package:didpoolfit/modules/onboarding/widgets/onboarding_content.dart';
 
-List<OnboardingContent> onboardingContentList = [
+List<OnboardingContent> onboardingContentData = [
   const OnboardingContent(
     image: "assets/images/onboarding/first.png",
     title: "Track Your Goal",
