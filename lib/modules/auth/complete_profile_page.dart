@@ -1,5 +1,6 @@
 import 'package:didpoolfit/global/utils/validator_util.dart';
 import 'package:didpoolfit/global/widgets/buttons/submit_button.dart';
+import 'package:didpoolfit/modules/auth/choose_program_page.dart';
 import 'package:didpoolfit/modules/auth/widgets/etc/gradient_square.dart';
 import 'package:didpoolfit/modules/auth/widgets/fields/auth_date_form_field.dart';
 import 'package:didpoolfit/modules/auth/widgets/fields/auth_dropdown_button_form_field.dart';
@@ -41,12 +42,16 @@ class _CompleteProfilePageState extends State<CompleteProfilePage> {
     }
   }
 
-  Future<void> next() async {
+  Future<void> completeProfile() async {
     if (!_formKey.currentState!.validate()) {
       return;
     }
 
     _formKey.currentState!.save();
+
+    Navigator.of(context).push(
+      MaterialPageRoute(builder: (context) => const ChooseProgramPage(),),
+    );
   }
 
   @override
@@ -147,8 +152,17 @@ class _CompleteProfilePageState extends State<CompleteProfilePage> {
                         ),
                         const SizedBox(height: 36),
                         SubmitButton(
-                          onPressed: next,
-                          child: const Text("Register"),
+                          onPressed: completeProfile,
+                          child: const Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Text("Next"),
+                              Icon(
+                                Icons.arrow_forward_ios_rounded,
+                                size: 20,
+                              ),
+                            ],
+                          ),
                         ),
                       ],
                     ),

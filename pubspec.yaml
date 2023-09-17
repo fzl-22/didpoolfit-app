@@ -37,6 +37,7 @@ dependencies:
   cupertino_icons: ^1.0.2
   iconly: ^1.0.1
   icons_plus: ^4.0.0
+  carousel_slider: ^4.2.1
 
 dev_dependencies:
   flutter_test:
@@ -64,6 +65,7 @@ flutter:
   assets:
     - assets/images/onboarding/
     - assets/images/form/
+    - assets/images/choose-program/
     - assets/icons/form/
     - assets/icons/complete-profile/
   #   - images/a_dot_burr.jpeg
