@@ -1,4 +1,4 @@
-import 'package:didpoolfit/global/utils/color_util.dart';
+import 'package:didpoolfit/global/themes/color_util.dart';
 import 'package:flutter/material.dart';
 
 class ProgramCard extends StatelessWidget {
@@ -20,7 +20,7 @@ class ProgramCard extends StatelessWidget {
       width: 0.75 * MediaQuery.of(context).size.width,
       padding: const EdgeInsets.all(36),
       decoration: BoxDecoration(
-        gradient: ColorUtil.purpleLinear,
+        gradient: ColorTheme.purpleLinear,
         borderRadius: BorderRadius.circular(22),
       ),
       child: Column(

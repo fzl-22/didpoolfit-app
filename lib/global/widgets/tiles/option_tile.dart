@@ -1,4 +1,4 @@
-import 'package:didpoolfit/global/utils/color_util.dart';
+import 'package:didpoolfit/global/themes/color_util.dart';
 import 'package:flutter/material.dart';
 import 'package:iconly/iconly.dart';
 
@@ -15,7 +15,7 @@ class OptionTile extends StatelessWidget {
     required this.title,
     this.trailing = const Icon(
       IconlyLight.arrow_right_2,
-      color: ColorUtil.gray1,
+      color: ColorTheme.gray1,
     ),
   });
 
@@ -36,7 +36,7 @@ class OptionTile extends StatelessWidget {
           Text(
             title,
             style: Theme.of(context).textTheme.labelLarge!.copyWith(
-                  color: ColorUtil.gray1,
+                  color: ColorTheme.gray1,
                 ),
           ),
           const Spacer(),

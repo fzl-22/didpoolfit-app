@@ -1,5 +1,5 @@
 import 'package:didpoolfit/global/models/user.dart';
-import 'package:didpoolfit/global/utils/color_util.dart';
+import 'package:didpoolfit/global/themes/color_util.dart';
 import 'package:didpoolfit/modules/profile/widgets/user_data_card.dart';
 import 'package:flutter/material.dart';
 
@@ -56,14 +56,14 @@ class ProfileSection extends StatelessWidget {
               style: Theme.of(context)
                   .textTheme
                   .labelMedium!
-                  .copyWith(color: ColorUtil.gray1),
+                  .copyWith(color: ColorTheme.gray1),
             ),
             trailing: Ink(
               width: 84,
               height: 36,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(99),
-                gradient: ColorUtil.logoLinear,
+                gradient: ColorTheme.logoLinear,
               ),
               child: InkWell(
                 borderRadius: BorderRadius.circular(99),
@@ -72,7 +72,7 @@ class ProfileSection extends StatelessWidget {
                   child: Text(
                     "Edit",
                     style: Theme.of(context).textTheme.labelMedium!.copyWith(
-                          color: ColorUtil.whiteColor,
+                          color: ColorTheme.whiteColor,
                           fontWeight: FontWeight.w600,
                         ),
                   ),

@@ -1,4 +1,4 @@
-import 'package:didpoolfit/global/utils/color_util.dart';
+import 'package:didpoolfit/global/themes/color_util.dart';
 import 'package:didpoolfit/global/widgets/buttons/submit_button.dart';
 import 'package:didpoolfit/modules/onboarding/onboarding_page.dart';
 import 'package:didpoolfit/modules/welcome/widgets/app_subtitle_text.dart';
@@ -12,7 +12,7 @@ class WelcomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: const BoxDecoration(
-        gradient: ColorUtil.purpleLinear,
+        gradient: ColorTheme.purpleLinear,
       ),
       child: Scaffold(
         floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
