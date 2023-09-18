@@ -19,5 +19,7 @@ class ColorUtil {
     end: Alignment.topLeft,
   );
 
+  static const blackColor = Color(0xFF1D1617);
+
   static const gray1 = Color(0xFFB6B4C2);
 }
