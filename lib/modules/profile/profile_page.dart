@@ -2,6 +2,7 @@ import 'package:didpoolfit/global/providers/user_provider.dart';
 import 'package:didpoolfit/global/widgets/buttons/app_bar_icon_button.dart';
 import 'package:didpoolfit/global/widgets/buttons/custom_app_bar.dart';
 import 'package:didpoolfit/modules/profile/sections/account_section.dart';
+import 'package:didpoolfit/modules/profile/sections/notification_section.dart';
 import 'package:didpoolfit/modules/profile/sections/profile_section.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -37,6 +38,8 @@ class ProfilePage extends ConsumerWidget {
             ),
             const SizedBox(height: 24),
             const AccountSection(),
+            const SizedBox(height: 24),
+            const NotificationSection(),
           ],
         ),
       ),
