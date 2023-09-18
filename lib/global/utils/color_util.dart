@@ -19,6 +19,16 @@ class ColorUtil {
     end: Alignment.topLeft,
   );
 
+  static const LinearGradient greenLinear = LinearGradient(
+    colors: [
+      Color(0xFF00FF66),
+      Color(0xFF00F0FF),
+    ],
+    begin: Alignment.centerRight,
+    end: Alignment.centerLeft,
+  );
+
+  static const whiteColor = Color(0xFFFFFFFF);
   static const blackColor = Color(0xFF1D1617);
 
   static const gray1 = Color(0xFFB6B4C2);
