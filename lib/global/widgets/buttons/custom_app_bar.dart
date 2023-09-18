@@ -18,6 +18,8 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
       preferredSize: const Size.fromHeight(64),
       child: Center(
         child: Container(
+          height: 64,
+          color: const Color(0xFFFFFBFF),
           padding: const EdgeInsets.symmetric(horizontal: 24),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -34,7 +36,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
       ),
     );
   }
-  
+
   @override
   Size get preferredSize => const Size.fromHeight(64);
 }

@@ -3,6 +3,7 @@ import 'package:didpoolfit/global/widgets/buttons/app_bar_icon_button.dart';
 import 'package:didpoolfit/global/widgets/buttons/custom_app_bar.dart';
 import 'package:didpoolfit/modules/profile/sections/account_section.dart';
 import 'package:didpoolfit/modules/profile/sections/notification_section.dart';
+import 'package:didpoolfit/modules/profile/sections/other_section.dart';
 import 'package:didpoolfit/modules/profile/sections/profile_section.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -26,21 +27,33 @@ class ProfilePage extends ConsumerWidget {
         ),
       ),
       body: Padding(
-        padding: const EdgeInsets.symmetric(
-          horizontal: 24,
-          vertical: 24,
+        padding: const EdgeInsets.only(
+          left: 24,
+          top: 24,
+          right: 24,
+          bottom: 0,
         ),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            ProfileSection(
-              user: ref.read(userProvider),
-            ),
-            const SizedBox(height: 24),
-            const AccountSection(),
-            const SizedBox(height: 24),
-            const NotificationSection(),
-          ],
+        child: SingleChildScrollView(
+          clipBehavior: Clip.none,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              ProfileSection(
+                user: ref.read(userProvider),
+              ),
+              const SizedBox(height: 12),
+              const Column(
+                children: [
+                  SizedBox(height: 12),
+                  AccountSection(),
+                  SizedBox(height: 24),
+                  NotificationSection(),
+                  SizedBox(height: 24),
+                  OtherSection(),
+                ],
+              ),
+            ],
+          ),
         ),
       ),
     );
