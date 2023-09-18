@@ -1,4 +1,4 @@
-import 'package:didpoolfit/global/utils/color_util.dart';
+import 'package:didpoolfit/global/themes/color_util.dart';
 import 'package:flutter/material.dart';
 
 class GradientIcon extends StatelessWidget {
@@ -13,11 +13,11 @@ class GradientIcon extends StatelessWidget {
   Widget build(BuildContext context) {
     return ShaderMask(
       shaderCallback: (bounds) {
-        return ColorUtil.greenLinear.createShader(bounds);
+        return ColorTheme.greenLinear.createShader(bounds);
       },
       child: Icon(
         icon,
-        color: ColorUtil.whiteColor,
+        color: ColorTheme.whiteColor,
       ),
     );
   }

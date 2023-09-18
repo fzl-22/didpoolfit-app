@@ -1,4 +1,4 @@
-import 'package:didpoolfit/global/utils/color_util.dart';
+import 'package:didpoolfit/global/themes/color_util.dart';
 import 'package:flutter/material.dart';
 
 class BottomNavigationBarIcon extends StatelessWidget {
@@ -15,7 +15,7 @@ class BottomNavigationBarIcon extends StatelessWidget {
   Widget build(BuildContext context) {
     return ShaderMask(
       shaderCallback: (bounds) {
-        return ColorUtil.logoLinear.createShader(bounds);
+        return ColorTheme.logoLinear.createShader(bounds);
       },
       child: Column(
         children: [

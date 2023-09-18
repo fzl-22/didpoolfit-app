@@ -1,4 +1,4 @@
-import 'package:didpoolfit/global/utils/color_util.dart';
+import 'package:didpoolfit/global/themes/color_util.dart';
 import 'package:didpoolfit/global/widgets/icons/gradient_icon.dart';
 import 'package:didpoolfit/global/widgets/tiles/option_tile.dart';
 import 'package:flutter/material.dart';
@@ -16,7 +16,7 @@ class AccountSection extends StatelessWidget {
       ),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(16),
-        color: ColorUtil.whiteColor,
+        color: ColorTheme.whiteColor,
         boxShadow: [
           BoxShadow(
             blurRadius: 20,

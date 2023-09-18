@@ -1,4 +1,4 @@
-import 'package:didpoolfit/global/utils/color_util.dart';
+import 'package:didpoolfit/global/themes/color_util.dart';
 import 'package:flutter/material.dart';
 
 class GradientSquare extends StatelessWidget {
@@ -16,7 +16,7 @@ class GradientSquare extends StatelessWidget {
       width: 50,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(14),
-        gradient: ColorUtil.purpleLinear,
+        gradient: ColorTheme.purpleLinear,
       ),
       child: Center(
         child: Text(

@@ -1,4 +1,4 @@
-import 'package:didpoolfit/global/utils/color_util.dart';
+import 'package:didpoolfit/global/themes/color_util.dart';
 import 'package:flutter/material.dart';
 
 class OnboardingContent extends StatelessWidget {
@@ -42,7 +42,7 @@ class OnboardingContent extends StatelessWidget {
               Text(
                 description,
                 style: Theme.of(context).textTheme.bodySmall!.copyWith(
-                      color: ColorUtil.gray1,
+                      color: ColorTheme.gray1,
                     ),
               )
             ],

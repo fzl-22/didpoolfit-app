@@ -1,4 +1,4 @@
-import 'package:didpoolfit/global/utils/color_util.dart';
+import 'package:didpoolfit/global/themes/color_util.dart';
 import 'package:flutter/material.dart';
 
 class DotIndicator extends StatelessWidget {
@@ -15,7 +15,7 @@ class DotIndicator extends StatelessWidget {
       height: isActive ? 18 : 6,
       width: 6,
       decoration: BoxDecoration(
-        gradient: ColorUtil.logoLinear,
+        gradient: ColorTheme.logoLinear,
         borderRadius: BorderRadius.circular(12),
       ),
       duration: const Duration(milliseconds: 300),

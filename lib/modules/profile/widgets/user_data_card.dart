@@ -1,4 +1,4 @@
-import 'package:didpoolfit/global/utils/color_util.dart';
+import 'package:didpoolfit/global/themes/color_util.dart';
 import 'package:flutter/material.dart';
 
 class UserDataCard extends StatelessWidget {
@@ -38,7 +38,7 @@ class UserDataCard extends StatelessWidget {
             children: [
               ShaderMask(
                 shaderCallback: (bounds) {
-                  return ColorUtil.purpleLinear.createShader(bounds);
+                  return ColorTheme.purpleLinear.createShader(bounds);
                 },
                 child: Text(
                   value,
@@ -51,7 +51,7 @@ class UserDataCard extends StatelessWidget {
               Text(
                 label,
                 style: Theme.of(context).textTheme.labelLarge!.copyWith(
-                      color: ColorUtil.gray1,
+                      color: ColorTheme.gray1,
                     ),
               ),
             ],

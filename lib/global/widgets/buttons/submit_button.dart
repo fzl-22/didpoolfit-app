@@ -1,4 +1,4 @@
-import 'package:didpoolfit/global/utils/color_util.dart';
+import 'package:didpoolfit/global/themes/color_util.dart';
 import 'package:flutter/material.dart';
 
 class SubmitButton extends StatelessWidget {
@@ -18,7 +18,7 @@ class SubmitButton extends StatelessWidget {
       height: 60,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(99),
-        gradient: ColorUtil.logoLinear,
+        gradient: ColorTheme.logoLinear,
       ),
       child: ElevatedButton(
         style: ElevatedButton.styleFrom(

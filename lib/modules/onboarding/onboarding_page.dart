@@ -1,5 +1,5 @@
 import 'package:didpoolfit/global/providers/onboarding_content_provider.dart';
-import 'package:didpoolfit/global/utils/color_util.dart';
+import 'package:didpoolfit/global/themes/color_util.dart';
 import 'package:didpoolfit/global/widgets/indicators/dot_indicator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -67,7 +67,7 @@ class _OnboardingPageState extends ConsumerState<OnboardingPage> {
                     height: 50,
                     width: 50,
                     decoration: BoxDecoration(
-                      gradient: ColorUtil.logoLinear,
+                      gradient: ColorTheme.logoLinear,
                       borderRadius: BorderRadius.circular(25),
                     ),
                     child: InkWell(

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class ColorUtil {
+class ColorTheme {
   static const purpleLinear = LinearGradient(
     colors: [
       Color(0xFFEEA4CE),
