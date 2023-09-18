@@ -35,7 +35,7 @@ class OptionTile extends StatelessWidget {
           ),
           Text(
             title,
-            style: Theme.of(context).textTheme.labelMedium!.copyWith(
+            style: Theme.of(context).textTheme.labelLarge!.copyWith(
                   color: ColorUtil.gray1,
                 ),
           ),

@@ -71,8 +71,9 @@ class ProfileSection extends StatelessWidget {
                 child: Center(
                   child: Text(
                     "Edit",
-                    style: Theme.of(context).textTheme.labelSmall!.copyWith(
+                    style: Theme.of(context).textTheme.labelMedium!.copyWith(
                           color: ColorUtil.whiteColor,
+                          fontWeight: FontWeight.w600,
                         ),
                   ),
                 ),
