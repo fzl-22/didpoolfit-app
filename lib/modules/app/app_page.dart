@@ -25,61 +25,63 @@ class _AppPageState extends State<AppPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: _pages[_currentPageIndex],
-      bottomNavigationBar: BottomNavigationBar(
-        showSelectedLabels: false,
-        showUnselectedLabels: false,
-        type: BottomNavigationBarType.fixed,
-        currentIndex: _currentPageIndex,
-        onTap: (index) {
-          setState(() {
-            _currentPageIndex = index;
-          });
-        },
-        items: const [
-          BottomNavigationBarItem(
-            icon: BottomNavigationBarIcon(
-              icon: IconlyLight.home,
+    return SafeArea(
+      child: Scaffold(
+        body: _pages[_currentPageIndex],
+        bottomNavigationBar: BottomNavigationBar(
+          showSelectedLabels: false,
+          showUnselectedLabels: false,
+          type: BottomNavigationBarType.fixed,
+          currentIndex: _currentPageIndex,
+          onTap: (index) {
+            setState(() {
+              _currentPageIndex = index;
+            });
+          },
+          items: const [
+            BottomNavigationBarItem(
+              icon: BottomNavigationBarIcon(
+                icon: IconlyLight.home,
+              ),
+              activeIcon: BottomNavigationBarIcon(
+                icon: IconlyBold.home,
+                isActive: true,
+              ),
+              label: "Home",
             ),
-            activeIcon: BottomNavigationBarIcon(
-              icon: IconlyBold.home,
-              isActive: true,
+            BottomNavigationBarItem(
+              icon: BottomNavigationBarIcon(
+                icon: IconlyLight.activity,
+              ),
+              activeIcon: BottomNavigationBarIcon(
+                icon: IconlyBold.activity,
+                isActive: true,
+              ),
+              label: "Activity"
             ),
-            label: "Home",
-          ),
-          BottomNavigationBarItem(
-            icon: BottomNavigationBarIcon(
-              icon: IconlyLight.activity,
+    
+            BottomNavigationBarItem(
+              icon: BottomNavigationBarIcon(
+                icon: IconlyLight.camera,
+              ),
+              activeIcon: BottomNavigationBarIcon(
+                icon: IconlyBold.camera,
+                isActive: true,
+              ),
+              label: "Camera",
             ),
-            activeIcon: BottomNavigationBarIcon(
-              icon: IconlyBold.activity,
-              isActive: true,
+            BottomNavigationBarItem(
+              icon: BottomNavigationBarIcon(
+                icon: IconlyLight.profile,
+              ),
+              activeIcon: BottomNavigationBarIcon(
+                icon: IconlyBold.profile,
+                isActive: true,
+              ),
+              label: "Profile",
             ),
-            label: "Activity"
-          ),
-
-          BottomNavigationBarItem(
-            icon: BottomNavigationBarIcon(
-              icon: IconlyLight.camera,
-            ),
-            activeIcon: BottomNavigationBarIcon(
-              icon: IconlyBold.camera,
-              isActive: true,
-            ),
-            label: "Camera",
-          ),
-          BottomNavigationBarItem(
-            icon: BottomNavigationBarIcon(
-              icon: IconlyLight.profile,
-            ),
-            activeIcon: BottomNavigationBarIcon(
-              icon: IconlyBold.profile,
-              isActive: true,
-            ),
-            label: "Profile",
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
