@@ -10,10 +10,8 @@ class OtherSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.symmetric(
-        // horizontal: 24,
-        vertical: 24,
-      ),
+      padding: const EdgeInsets.symmetric(vertical: 24),
+      margin: const EdgeInsets.symmetric(horizontal: 24),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(16),
         color: ColorTheme.whiteColor,
