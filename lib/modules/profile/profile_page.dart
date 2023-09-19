@@ -26,34 +26,34 @@ class ProfilePage extends ConsumerWidget {
           onTap: () {},
         ),
       ),
-      body: Padding(
-        padding: const EdgeInsets.only(
-          left: 24,
+      body: Container(
+        margin: const EdgeInsets.only(
+          left: 0,
           top: 24,
-          right: 24,
+          right: 0,
           bottom: 0,
         ),
-        child: SingleChildScrollView(
-          clipBehavior: Clip.none,
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [
-              ProfileSection(
-                user: ref.read(userProvider),
-              ),
-              const SizedBox(height: 12),
-              const Column(
-                children: [
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            ProfileSection(
+              user: ref.read(userProvider),
+            ),
+            const SizedBox(height: 12),
+            Expanded(
+              child: ListView(
+                children: const [
                   SizedBox(height: 12),
                   AccountSection(),
                   SizedBox(height: 24),
                   NotificationSection(),
                   SizedBox(height: 24),
                   OtherSection(),
+                  SizedBox(height: 24),
                 ],
               ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );
