@@ -17,7 +17,7 @@ class LoginSuccessPage extends StatelessWidget {
           ),
           child: SubmitButton(
             onPressed: () {
-              context.go('/app');
+              context.go('/home');
             },
             child: const Text("Go To Home"),
           ),
