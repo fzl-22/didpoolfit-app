@@ -54,13 +54,14 @@ class _OnboardingPageState extends ConsumerState<OnboardingPage> {
             child: Row(
               children: [
                 ...List.generate(
-                    onboardingContentData.length,
-                    (index) => Padding(
-                          padding: const EdgeInsets.only(right: 4.0),
-                          child: DotIndicator(
-                            isActive: index == _pageIndex,
-                          ),
-                        )),
+                  onboardingContentData.length,
+                  (index) => Padding(
+                    padding: const EdgeInsets.only(right: 4.0),
+                    child: DotIndicator(
+                      isActive: index == _pageIndex,
+                    ),
+                  ),
+                ),
                 const Spacer(),
                 Material(
                   child: Ink(

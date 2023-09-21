@@ -1,25 +1,25 @@
-import 'package:didpoolfit/modules/app/app_page.dart';
+import 'package:didpoolfit/modules/home/home_page.dart';
 import 'package:didpoolfit/modules/auth/login/login_page.dart';
 import 'package:didpoolfit/modules/auth/login/login_success_page.dart';
 import 'package:didpoolfit/modules/auth/register/choose_program_page.dart';
 import 'package:didpoolfit/modules/auth/register/complete_profile_page.dart';
 import 'package:didpoolfit/modules/auth/register/register_page.dart';
-import 'package:didpoolfit/modules/home/home_page.dart';
+import 'package:didpoolfit/modules/dashboard/dashboard_page.dart';
 import 'package:didpoolfit/modules/welcome/welcome_page.dart';
 import 'package:go_router/go_router.dart';
 
 final routers = GoRouter(
-  initialLocation: '/welcome',
+  initialLocation: '/home',
   routes: [
-    GoRoute(
-      name: "app",
-      path: "/app",
-      builder: (context, state) => const AppPage(),
-    ),
     GoRoute(
       name: "home",
       path: "/home",
       builder: (context, state) => const HomePage(),
+    ),
+    GoRoute(
+      name: "dashboard",
+      path: "/dashboard",
+      builder: (context, state) => const DashboardPage(),
     ),
     GoRoute(
       name: 'welcome',
