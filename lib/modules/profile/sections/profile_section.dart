@@ -1,5 +1,6 @@
 import 'package:didpoolfit/global/models/user.dart';
 import 'package:didpoolfit/global/themes/color_util.dart';
+import 'package:didpoolfit/global/utils/user_data_util.dart';
 import 'package:didpoolfit/global/widgets/buttons/gradient_button.dart';
 import 'package:didpoolfit/modules/profile/widgets/cards/user_data_card.dart';
 import 'package:flutter/material.dart';
@@ -11,26 +12,6 @@ class ProfileSection extends StatelessWidget {
     super.key,
     required this.user,
   });
-
-  String get _userName {
-    return user.fullName.split(' ').getRange(0, 2).toList().join(' ');
-  }
-
-  String get _preferredProgramTitle {
-    return user.preferredProgram.title;
-  }
-
-  String get _bodyHeight {
-    return "${user.bodyHeight.toInt().toString()}cm";
-  }
-
-  String get _bodyWeight {
-    return "${user.bodyWeight.toInt().toString()}kg";
-  }
-
-  String get _userAge {
-    return "${(DateTime.now().difference(user.dateOfBirth).inDays ~/ 365).toString()}yo";
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -55,13 +36,13 @@ class ProfileSection extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
                     Text(
-                      _userName,
+                      UserDataUtil(user: user).userName,
                       style: Theme.of(context).textTheme.bodyMedium!.copyWith(
                             fontWeight: FontWeight.w500,
                           ),
                     ),
                     Text(
-                      _preferredProgramTitle,
+                      UserDataUtil(user: user).preferredProgramTitle,
                       style: Theme.of(context)
                           .textTheme
                           .labelMedium!
@@ -84,7 +65,7 @@ class ProfileSection extends StatelessWidget {
                 flex: 1,
                 child: UserDataCard(
                   label: "Height",
-                  value: _bodyHeight,
+                  value: UserDataUtil(user: user).bodyHeight,
                 ),
               ),
               const SizedBox(
@@ -94,7 +75,7 @@ class ProfileSection extends StatelessWidget {
                 flex: 1,
                 child: UserDataCard(
                   label: "Weight",
-                  value: _bodyWeight,
+                  value: UserDataUtil(user: user).bodyWeight,
                 ),
               ),
               const SizedBox(
@@ -104,7 +85,7 @@ class ProfileSection extends StatelessWidget {
                 flex: 1,
                 child: UserDataCard(
                   label: "Age",
-                  value: _userAge,
+                  value: UserDataUtil(user: user).userAge,
                 ),
               ),
             ],
